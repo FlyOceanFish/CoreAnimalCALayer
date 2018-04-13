@@ -17,11 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+//    [self strokeStartAndEnd];
 //    [self fillRule];
 //    [self gradientLayer];
 //    [self maskLayer];
+    [self halfCircle];
 }
 // 带有动画和渐变的圆弧
 - (void)halfCircle{
@@ -34,7 +34,6 @@
     CAShapeLayer *pointLayer = [CAShapeLayer layer];
     pointLayer.path = path.CGPath;
     pointLayer.strokeColor = [[UIColor blackColor] CGColor];//线条颜色
-    
     
     //    kCAFillModeRemoved 这个是默认值,也就是说当动画开始前和动画结束后,动画对layer都没有影响,动画结束后,layer会恢复到之前的状态（可以理解为动画执行完成后移除）
     //    kCAFillModeForwards 当动画结束后,layer会一直保持着动画最后的状态
@@ -62,6 +61,7 @@
     animal.fromValue = @0;
     animal.toValue = @1;
     animal.duration = 2;
+    animal.removedOnCompletion =
     //    必须设置这两个属性才能保证动画结束后保持动画结束后的状态
     //    animal.removedOnCompletion = NO;
     //    animal.fillMode = kCAFillModeForwards;
@@ -74,7 +74,7 @@
     CASpringAnimation *anim2 = [CASpringAnimation animationWithKeyPath:@"strokeEnd"];
     anim2.fromValue = @0;
     anim2.toValue = @1;
-    anim2.duration = 2;
+    anim2.duration = 5;
     anim2.timingFunction =
     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     anim2.damping = 8;//阻尼系数，值越大停止的越快
@@ -102,6 +102,18 @@
     [self.view.layer addSublayer:gradientLayer];
     [pointLayer addAnimation:anim2 forKey:@"animal"];
 }
+//测试strokeStart和strokeEnd
+- (void)strokeStartAndEnd{
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(100, 200) radius:80 startAngle:-M_PI_2 endAngle:M_PI*3/2 clockwise:YES];
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.lineWidth = 5;
+    layer.path = path.CGPath;
+    layer.strokeColor = [UIColor purpleColor].CGColor;
+    layer.fillColor = [UIColor orangeColor].CGColor;
+    layer.strokeStart = 0.5;
+    layer.strokeEnd = 0.8;
+    [self.view.layer addSublayer:layer];
+}
 //kCAFillRuleEvenOdd属性的例子
 - (void)fillRule{
     UIBezierPath *path1 = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 100, 100)];
@@ -127,7 +139,7 @@
 - (void)gradientLayer{
     
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.frame = CGRectMake(10, 300, 20, 100);
+    layer.frame = CGRectMake(100, 300, 80, 100);
     UIColor *middleColor = [UIColor colorWithWhite:255/255 alpha:0.8];
     NSArray *colors = @[
                         (__bridge id)[UIColor redColor].CGColor,
