@@ -13,7 +13,6 @@
 		42B5BF6B207C571C00E25E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B5BF6A207C571C00E25E6E /* Assets.xcassets */; };
 		42B5BF6E207C571C00E25E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */; };
 		42B5BF71207C571C00E25E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF70207C571C00E25E6E /* main.m */; };
-		42B5BF79207F47C300E25E6E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF78207F47C200E25E6E /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +26,6 @@
 		42B5BF6D207C571C00E25E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B5BF6F207C571C00E25E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B5BF70207C571C00E25E6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		42B5BF77207F47C200E25E6E /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		42B5BF78207F47C200E25E6E /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +62,6 @@
 				42B5BF62207C571C00E25E6E /* AppDelegate.m */,
 				42B5BF64207C571C00E25E6E /* ViewController.h */,
 				42B5BF65207C571C00E25E6E /* ViewController.m */,
-				42B5BF77207F47C200E25E6E /* Person.h */,
-				42B5BF78207F47C200E25E6E /* Person.m */,
 				42B5BF67207C571C00E25E6E /* Main.storyboard */,
 				42B5BF6A207C571C00E25E6E /* Assets.xcassets */,
 				42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */,
@@ -149,7 +144,6 @@
 			files = (
 				42B5BF66207C571C00E25E6E /* ViewController.m in Sources */,
 				42B5BF71207C571C00E25E6E /* main.m in Sources */,
-				42B5BF79207F47C300E25E6E /* Person.m in Sources */,
 				42B5BF63207C571C00E25E6E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
