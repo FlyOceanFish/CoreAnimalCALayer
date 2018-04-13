@@ -20,7 +20,52 @@
 //    [self fillRule];
 //    [self gradientLayer];
 //    [self maskLayer];
-    [self halfCircle];
+//    [self halfCircle];
+    [self keyFrameAnimal];
+}
+- (void)keyFrameAnimal{
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    view.backgroundColor = [UIColor orangeColor];
+    
+    UIBezierPath *circle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 10, 10) cornerRadius:5];
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    circleLayer.frame = CGRectMake(0, 0, 10, 10);
+    circleLayer.fillColor = [UIColor orangeColor].CGColor;
+    circleLayer.path = circle.CGPath;
+    
+//    CALayer *circleLayer = [[CALayer alloc] init];
+//    circleLayer.frame = CGRectMake(0, 0, 20, 20);
+//    circleLayer.backgroundColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:circleLayer];
+    
+    CGMutablePathRef thePath = CGPathCreateMutable();
+//    CGPathMoveToPoint(thePath,NULL,74.0,74.0);
+//    CGPathAddCurveToPoint(thePath,NULL,74.0,74,
+//                          130,300.0,
+//                          186.0,74.0);
+//    CGPathAddCurveToPoint(thePath,NULL,186,74.0,
+//                          220,400.0,
+//                          300,74.0);
+    CGPathAddArc(thePath, NULL, 150, 200, 100, 0, 2*M_PI, YES);
+    CAKeyframeAnimation * theAnimation;
+    
+    // Create the animation object, specifying the position property as the key path.
+    theAnimation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
+    theAnimation.path=thePath;
+    theAnimation.duration=5.0;
+    theAnimation.repeatCount = 100;
+    theAnimation.fillMode = kCAFillModeForwards;
+    [circleLayer addAnimation:theAnimation forKey:@"position"];
+    
+    CAShapeLayer *animalTrack = [CAShapeLayer layer];
+    animalTrack.path = thePath;
+    animalTrack.strokeColor = [UIColor redColor].CGColor;
+    animalTrack.fillColor = [UIColor clearColor].CGColor;
+    animalTrack.lineWidth = 1;
+    [self.view.layer addSublayer:animalTrack];
+    
+
+//    [self.view.layer insertSublayer:animalTrack below:circleLayer];
 }
 // 带有动画和渐变的圆弧
 - (void)halfCircle{
