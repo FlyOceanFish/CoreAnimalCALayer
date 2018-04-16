@@ -24,7 +24,7 @@
     [self keyFrameAnimal];
 }
 - (void)keyFrameAnimal{
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    UIView *vi，ew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 //    view.backgroundColor = [UIColor orangeColor];
     
     UIBezierPath *circle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 10, 10) cornerRadius:5];
