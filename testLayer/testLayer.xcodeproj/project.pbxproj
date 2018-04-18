@@ -13,6 +13,7 @@
 		42B5BF6B207C571C00E25E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B5BF6A207C571C00E25E6E /* Assets.xcassets */; };
 		42B5BF6E207C571C00E25E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */; };
 		42B5BF71207C571C00E25E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF70207C571C00E25E6E /* main.m */; };
+		42B5BF7F2085C1AD00E25E6E /* ShapeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		42B5BF6D207C571C00E25E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B5BF6F207C571C00E25E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B5BF70207C571C00E25E6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42B5BF7D2085C1AD00E25E6E /* ShapeCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeCircle.h; sourceTree = "<group>"; };
+		42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeCircle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				42B5BF62207C571C00E25E6E /* AppDelegate.m */,
 				42B5BF64207C571C00E25E6E /* ViewController.h */,
 				42B5BF65207C571C00E25E6E /* ViewController.m */,
+				42B5BF7D2085C1AD00E25E6E /* ShapeCircle.h */,
+				42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */,
 				42B5BF67207C571C00E25E6E /* Main.storyboard */,
 				42B5BF6A207C571C00E25E6E /* Assets.xcassets */,
 				42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */,
@@ -145,6 +150,7 @@
 				42B5BF66207C571C00E25E6E /* ViewController.m in Sources */,
 				42B5BF71207C571C00E25E6E /* main.m in Sources */,
 				42B5BF63207C571C00E25E6E /* AppDelegate.m in Sources */,
+				42B5BF7F2085C1AD00E25E6E /* ShapeCircle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

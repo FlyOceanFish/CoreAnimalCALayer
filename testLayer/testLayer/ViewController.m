@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-
+#import "ShapeCircle.h"
 @interface ViewController ()
-
+{
+    ShapeCircle *layer;
+}
 @end
 
 @implementation ViewController
@@ -21,7 +23,30 @@
 //    [self gradientLayer];
 //    [self maskLayer];
 //    [self halfCircle];
-    [self keyFrameAnimal];
+//    [self keyFrameAnimal];
+    [self shapeAnimal];
+}
+- (void)shapeAnimal{
+    layer = [ShapeCircle layer];
+    layer.originFrame = CGRectMake(100, 100, 10, 10);
+    layer.maxDistance = 140;
+    layer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    layer.backgroundColor = [UIColor grayColor].CGColor;
+    [self.view.layer addSublayer:layer];
+    [layer setNeedsDisplay];
+}
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = touches.anyObject;
+    CGPoint point = [touch locationInView:self.view];
+    layer.currentFrame = CGRectMake(point.x, point.y, 15, 15);
+    NSLog(@"%@",NSStringFromCGPoint(point));
+}
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    layer.currentFrame = CGRectZero;
+    NSLog(@"-----结束-----");
+}
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"-----取消-----");
 }
 - (void)keyFrameAnimal{
 //    UIView *vi，ew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
