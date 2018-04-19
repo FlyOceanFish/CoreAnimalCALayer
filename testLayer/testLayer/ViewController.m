@@ -25,6 +25,28 @@
 //    [self halfCircle];
 //    [self keyFrameAnimal];
     [self shapeAnimal];
+//    [self animalGroup];
+}
+- (void)animalGroup{
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(100, 100, 50, 50);
+    layer.backgroundColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:layer];
+    
+    CABasicAnimation *anim1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    anim1.fromValue = @1;
+    anim1.toValue = @0;
+    
+    CABasicAnimation *anim2 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    anim2.fromValue = @1;
+    anim2.toValue = @0;
+    
+    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
+    group.animations = @[anim1,anim2];
+    group.duration = 5;
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    [layer addAnimation:group forKey:nil];
 }
 - (void)shapeAnimal{
     layer = [ShapeCircle layer];
