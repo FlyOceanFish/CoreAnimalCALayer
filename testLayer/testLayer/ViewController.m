@@ -24,7 +24,7 @@
 //    [self maskLayer];
 //    [self halfCircle];
 //    [self keyFrameAnimal];
-    [self shapeAnimal];
+//    [self shapeAnimal];
 //    [self animalGroup];
 }
 - (void)animalGroup{

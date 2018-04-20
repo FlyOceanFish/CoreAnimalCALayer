@@ -14,6 +14,7 @@
 		42B5BF6E207C571C00E25E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */; };
 		42B5BF71207C571C00E25E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF70207C571C00E25E6E /* main.m */; };
 		42B5BF7F2085C1AD00E25E6E /* ShapeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */; };
+		42B5BFEA20887F3000E25E6E /* EmmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5BFE920887F3000E25E6E /* EmmitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		42B5BF70207C571C00E25E6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42B5BF7D2085C1AD00E25E6E /* ShapeCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeCircle.h; sourceTree = "<group>"; };
 		42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeCircle.m; sourceTree = "<group>"; };
+		42B5BFE820887F3000E25E6E /* EmmitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmmitViewController.h; sourceTree = "<group>"; };
+		42B5BFE920887F3000E25E6E /* EmmitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmmitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				42B5BF65207C571C00E25E6E /* ViewController.m */,
 				42B5BF7D2085C1AD00E25E6E /* ShapeCircle.h */,
 				42B5BF7E2085C1AD00E25E6E /* ShapeCircle.m */,
+				42B5BFE820887F3000E25E6E /* EmmitViewController.h */,
+				42B5BFE920887F3000E25E6E /* EmmitViewController.m */,
 				42B5BF67207C571C00E25E6E /* Main.storyboard */,
 				42B5BF6A207C571C00E25E6E /* Assets.xcassets */,
 				42B5BF6C207C571C00E25E6E /* LaunchScreen.storyboard */,
@@ -149,6 +154,7 @@
 			files = (
 				42B5BF66207C571C00E25E6E /* ViewController.m in Sources */,
 				42B5BF71207C571C00E25E6E /* main.m in Sources */,
+				42B5BFEA20887F3000E25E6E /* EmmitViewController.m in Sources */,
 				42B5BF63207C571C00E25E6E /* AppDelegate.m in Sources */,
 				42B5BF7F2085C1AD00E25E6E /* ShapeCircle.m in Sources */,
 			);
