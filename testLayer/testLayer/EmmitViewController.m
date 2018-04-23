@@ -42,8 +42,15 @@
     layercopy2.instanceTransform = CATransform3DMakeTranslation(0, 26, 0);
     layercopy2.frame = CGRectMake(0, 0, 38, 30);
     [layercopy2 addSublayer:layercopy];
-    [self.view.layer addSublayer:layercopy2];
+//    [self.view.layer addSublayer:layercopy2];
 
+//    CAReplicatorLayer *layerCenter = [CAReplicatorLayer layer];
+//    layerCenter.instanceCount = 1;
+//    layerCenter.instanceDelay = 0.08;
+//    layerCenter.instanceTransform = CATransform3DMakeTranslation(26, 0, 0);
+//    layerCenter.frame = CGRectMake(0, 0, 42, 12);
+//    [layerCenter addSublayer:layer];
+//    [self.view.layer addSublayer:layerCenter];
 
     CABasicAnimation *anim1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
     anim1.fromValue = @1;

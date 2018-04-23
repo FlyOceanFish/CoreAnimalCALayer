@@ -24,7 +24,7 @@
 //    [self maskLayer];
 //    [self halfCircle];
 //    [self keyFrameAnimal];
-//    [self shapeAnimal];
+    [self shapeAnimal];
 //    [self animalGroup];
 }
 - (void)animalGroup{
@@ -61,7 +61,7 @@
     UITouch *touch = touches.anyObject;
     CGPoint point = [touch locationInView:self.view];
     layer.currentFrame = CGRectMake(point.x, point.y, 15, 15);
-    NSLog(@"%@",NSStringFromCGPoint(point));
+    NSLog(@"---开始---%@",NSStringFromCGPoint(point));
 }
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     layer.currentFrame = CGRectZero;

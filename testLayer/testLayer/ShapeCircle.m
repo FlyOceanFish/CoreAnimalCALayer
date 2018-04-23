@@ -10,6 +10,10 @@
 @interface ShapeCircle()<CAAnimationDelegate>
 {
     NSMutableArray *arrayClouds;
+    CGRect _lastRect;
+    BOOL _overDistance;
+    BOOL _animaling;
+    BOOL _moveStartOrigin;
 }
 @end
 @implementation ShapeCircle
@@ -29,7 +33,9 @@
     CGFloat d = sqrtf(powf(y1-y2, 2)+powf(x2-x1, 2));
     
     if (CGRectGetWidth(self.currentFrame)>0&&d<self.maxDistance) {
-
+        _overDistance = false;
+        _lastRect = self.currentFrame;
+        
         CGFloat cos0 = (x2-x1)/d;
         CGFloat sin0 = (y1-y2)/d;
         
@@ -82,8 +88,9 @@
         CGContextAddArc(ctx,x2, y2, CGRectGetWidth(self.currentFrame)/2, 0, 2*M_PI, YES);
         CGContextSetFillColorWithColor(ctx, self.circleColor.CGColor);
         CGContextFillPath(ctx);
+    }else{
+        _overDistance = true;
     }
-
     
     CGContextAddArc(ctx,x1, y1, CGRectGetWidth(self.originFrame)/2, 0, 2*M_PI, YES);
     CGContextSetFillColorWithColor(ctx, self.circleColor.CGColor);
@@ -93,8 +100,20 @@
 }
 
 -(void)setCurrentFrame:(CGRect)currentFrame{
-    _currentFrame = currentFrame;
-    [self setNeedsDisplay];
+    if (fabs(self.originFrame.origin.x-currentFrame.origin.x)<10) {
+        _moveStartOrigin = true;
+    }
+    if (_moveStartOrigin) {
+        if (!_overDistance) {
+            _currentFrame = currentFrame;
+            [self setNeedsDisplay];
+        }
+        
+        if ((CGRectGetWidth(currentFrame)==0&&CGRectGetWidth(_lastRect)>0)||(_overDistance&&_animaling)) {
+            _moveStartOrigin = false;
+            [self animalLayerExplode];
+        }
+    }
 }
 
 - (void)initDefault{
@@ -104,6 +123,59 @@
     if (self.maxDistance==0) {
         self.maxDistance = 140;
     }
+    _animaling = true;
 }
-
+- (void)animalLayerExplode{
+    _animaling = false;
+    int width = 8;
+    CALayer *layer = [CALayer layer];
+    layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"cloud"].CGImage);
+    layer.frame = CGRectMake(_lastRect.origin.x+CGRectGetWidth(_lastRect)/2-14,_lastRect.origin.y+CGRectGetWidth(_lastRect)/2-16, width, width);
+    CAReplicatorLayer *layercopy = [CAReplicatorLayer layer];
+    layercopy.instanceCount = 2;
+    layercopy.instanceDelay = 0.08;
+    layercopy.instanceTransform = CATransform3DMakeTranslation(22, 3, 0);
+    layercopy.frame = CGRectMake(0, 0, 38, width);
+    [layercopy addSublayer:layer];
+    
+    //    [self.view.layer addSublayer:layercopy];
+    
+    CAReplicatorLayer *layercopy2 = [CAReplicatorLayer layer];
+    layercopy2.instanceCount = 2;
+    layercopy.instanceDelay  = 0.1;
+    layercopy2.instanceTransform = CATransform3DMakeTranslation(0, 26, 0);
+    layercopy2.frame = CGRectMake(0, 0, 38, 30);
+    [layercopy2 addSublayer:layercopy];
+    
+    [self.superlayer addSublayer:layercopy2];
+    
+    CALayer *layerCenter = [CALayer layer];
+    layerCenter.contents = (__bridge id _Nullable)([UIImage imageNamed:@"cloud"].CGImage);
+    layerCenter.frame = CGRectMake(_lastRect.origin.x+CGRectGetWidth(_lastRect)/2-4,_lastRect.origin.y+CGRectGetWidth(_lastRect)/2-1, width, width);
+    [self.superlayer addSublayer:layerCenter];
+    
+    CABasicAnimation *anim1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    anim1.fromValue = @1;
+    anim1.toValue = @0;
+    
+    CABasicAnimation *anim2 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    anim2.fromValue = @1;
+    anim2.toValue = @1.5;
+    
+    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
+    group.animations = @[anim1,anim2];
+    group.duration = 0.3;
+    group.fillMode = kCAFillModeForwards;
+    group.delegate = self;
+    group.removedOnCompletion = NO;
+    [layer addAnimation:group forKey:nil];
+    [layerCenter addAnimation:group forKey:nil];
+    
+}
+#pragma mark - CAAnimationDelegate
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    _lastRect = CGRectZero;
+    _overDistance = false;
+    _animaling = true;
+}
 @end
