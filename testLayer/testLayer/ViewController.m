@@ -24,7 +24,7 @@
 //    [self maskLayer];
 //    [self halfCircle];
 //    [self keyFrameAnimal];
-    [self shapeAnimal];
+    [self shapeAnimalQQMessage];
 //    [self animalGroup];
 }
 - (void)animalGroup{
@@ -48,7 +48,7 @@
     group.removedOnCompletion = NO;
     [layer addAnimation:group forKey:nil];
 }
-- (void)shapeAnimal{
+- (void)shapeAnimalQQMessage{
     layer = [ShapeCircle layer];
     layer.originFrame = CGRectMake(100, 100, 10, 10);
     layer.maxDistance = 140;
