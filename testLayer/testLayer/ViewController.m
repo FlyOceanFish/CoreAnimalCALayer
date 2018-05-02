@@ -24,8 +24,9 @@
 //    [self maskLayer];
 //    [self halfCircle];
 //    [self keyFrameAnimal];
-    [self shapeAnimalQQMessage];
+//    [self shapeAnimalQQMessage];
 //    [self animalGroup];
+    [self gradientText];
 }
 - (void)animalGroup{
     CALayer *layer = [CALayer layer];
@@ -102,6 +103,7 @@
     theAnimation.duration=5.0;
     theAnimation.repeatCount = 100;
     theAnimation.fillMode = kCAFillModeForwards;
+//    theAnimation.rotationMode = kCAAnimationRotateAutoReverse;//如果是长方体的话，重心是一直朝着圆的中心方向运动
     [circleLayer addAnimation:theAnimation forKey:@"position"];
     
     CAShapeLayer *animalTrack = [CAShapeLayer layer];
@@ -256,6 +258,28 @@
     layer.fillColor = [UIColor redColor].CGColor;
     layer.mask = maskLayer;
     [self.view.layer addSublayer:layer];
+}
+//文字颜色渐变
+- (void)gradientText{
+    NSString *str = @"在线阅读经典的好文章美文,爱情伤感文章,生活情感文章,欣赏最新原创空间博客伤感日志,情感日志及爱情,友情,心情...";
+    CGFloat height = [str boundingRectWithSize:CGSizeMake(self.view.bounds.size.width-30, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:18] } context:nil].size.height;
+    
+    CATextLayer *textLayer = [CATextLayer layer];
+    textLayer.string = str;
+    textLayer.frame = CGRectMake(0, 0, self.view.bounds.size.width-30, height+20);
+    textLayer.backgroundColor = [UIColor clearColor].CGColor;
+    textLayer.fontSize = 18;
+    textLayer.wrapped = YES;
+    textLayer.foregroundColor = [UIColor blackColor].CGColor;
+    
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = CGRectMake(15, 100, self.view.bounds.size.width-30, height+20);
+    [gradientLayer setStartPoint:CGPointMake(0.0, 0.0)];
+    [gradientLayer setEndPoint:CGPointMake(1.0, 1.0)];
+    gradientLayer.colors = @[(id)[UIColor redColor].CGColor,  (id)[UIColor yellowColor].CGColor,(id)[UIColor greenColor].CGColor];
+    //加上遮罩效果，以 gradientLayer 为 底色，用 textLayer 的文字为模板
+    gradientLayer.mask = textLayer;
+    [self.view.layer addSublayer:gradientLayer];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
