@@ -160,7 +160,7 @@ UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(100, 100)
    [self.view.layer addSublayer:gradientLayer];
    [pointLayer addAnimation:anim2 forKey:@"animal"];
 ```
-![动画.gif](https://upload-images.jianshu.io/upload_images/6644906-13134c2bf6b9483d.gif?imageMogr2/auto-orient/strip)
+![](https://user-gold-cdn.xitu.io/2018/5/9/163452abf75194a3?w=320&h=257&f=gif&s=66941)
 # 关键帧动画
 CAKeyframeAnimation在这里是实现了一个小圆球沿着一个半圆路径一直旋转运动的动画。（圆心在路径上）
 ```
