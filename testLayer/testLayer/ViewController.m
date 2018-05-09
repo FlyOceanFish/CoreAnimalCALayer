@@ -18,15 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 //    [self strokeStartAndEnd];
 //    [self fillRule];
 //    [self gradientLayer];
 //    [self maskLayer];
-//    [self halfCircle];
+    [self halfCircle];
 //    [self keyFrameAnimal];
 //    [self shapeAnimalQQMessage];
 //    [self animalGroup];
-    [self gradientText];
+//    [self gradientText];
 }
 - (void)animalGroup{
     CALayer *layer = [CALayer layer];
