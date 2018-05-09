@@ -160,7 +160,7 @@ UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(100, 100)
    [self.view.layer addSublayer:gradientLayer];
    [pointLayer addAnimation:anim2 forKey:@"animal"];
 ```
-![](https://user-gold-cdn.xitu.io/2018/5/9/163452abf75194a3?w=320&h=257&f=gif&s=66941)
+![动画](https://user-gold-cdn.xitu.io/2018/5/9/163452abf75194a3?w=320&h=257&f=gif&s=66941)
 # 关键帧动画
 CAKeyframeAnimation在这里是实现了一个小圆球沿着一个半圆路径一直旋转运动的动画。（圆心在路径上）
 ```
@@ -191,4 +191,5 @@ animalTrack.lineWidth = 1;
 这里一开始有个问题，就是不是圆心沿着路径运动。然后我又换成了UIView试了一下可以的。最后研究主要是circleLayer我们仅仅设置了path,但是frame是没有的，设置了frame之后圆心开始沿着路径运动。
 ![帧动画.gif](https://upload-images.jianshu.io/upload_images/6644906-1071184cf602e560.gif?imageMogr2/auto-orient/strip)
 # 文字渐变
-![](https://user-gold-cdn.xitu.io/2018/5/9/16345266ad2fea37?w=600&h=264&f=png&s=83796)
+
+![文字渐变](https://user-gold-cdn.xitu.io/2018/5/9/16345266ad2fea37?w=600&h=264&f=png&s=83796)
