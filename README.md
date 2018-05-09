@@ -190,6 +190,5 @@ animalTrack.lineWidth = 1;
 ```
 这里一开始有个问题，就是不是圆心沿着路径运动。然后我又换成了UIView试了一下可以的。最后研究主要是circleLayer我们仅仅设置了path,但是frame是没有的，设置了frame之后圆心开始沿着路径运动。
 ![帧动画.gif](https://upload-images.jianshu.io/upload_images/6644906-1071184cf602e560.gif?imageMogr2/auto-orient/strip)
-
-# 源码
-[Github源码](https://github.com/FlyOceanFish/CoreAnimalCALayer)
+# 文字渐变
+![](https://user-gold-cdn.xitu.io/2018/5/9/16345266ad2fea37?w=600&h=264&f=png&s=83796)
